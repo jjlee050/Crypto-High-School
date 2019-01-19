@@ -23,7 +23,7 @@ $num2 = mysqli_num_rows($r2);
 
 if ($num > 0 && $num2 > 0) {
 
-	echo '<p> Both Username and Password Match!! </p>';
+	header('Location: '.'main.php');
 
 }
 
