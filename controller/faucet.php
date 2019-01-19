@@ -28,6 +28,7 @@ class Faucet extends Controller {
             $newAmount = $user['credit'] + 20;
             $result = $this -> model -> makeClaim($newAmount, Session::getSession("username"));
             if ($result) {
+                Session::createSession("lastClaimDate", $currentDateTime);
                 header("Location: ../faucet");
             }
         } else {

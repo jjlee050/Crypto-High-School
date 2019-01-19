@@ -16,23 +16,28 @@
 <div id="faucet">
     <form method="post" action="faucet/checkCreditClaim" class="container text-center">
 	    <fieldset>
-            <legend> Claim your credits</legend>
-            <p> You can claim 20 credits for every 15 minutes </p>
-			<p> Your Credit Balance: 
-                <?php
-                    echo $this -> user["credit"]. "<br/>";
-                    if ((($minutes <= 0) && ($seconds <= 0)) || ($hours < 0) || ($days < 0) || ($months < 0) || ($years < 0) || (!isset($lastClaimDateTime))) { 
-                        echo "<script>$(document).ready(function(){ $('#clockdiv').hide();$('#claimSection').show(); });</script>";
-                    } else {
-                        echo "<script>$(document).ready(function(){ $('#clockdiv').show();$('#claimSection').hide(); });</script>";
-                    }                
-                ?>
-            </p>
-            <div id="claimSection">
+            <div class="card">
+                <h5 class="card-header">Claim your credits</h5>
+                <div class="card-body">
+                    <p> You can claim 20 credits for every 15 minutes </p>
+                    <p> Your Credit Balance: 
+                        <?php
+                            echo $this -> user["credit"]. "<br/>";
+                            if ((($minutes <= 0) && ($seconds <= 0)) || ($hours < 0) || ($days < 0) || ($months < 0) || ($years < 0) || (!isset($lastClaimDateTime))) { 
+                                echo "<script>$(document).ready(function(){ $('#clockdiv').hide();$('#claimSection').show(); });</script>";
+                            } else {
+                                echo "<script>$(document).ready(function(){ $('#clockdiv').show();$('#claimSection').hide(); });</script>";
+                            }                
+                        ?>
+                    </p>
+                </div>
+            </div>
+            <br/>
+            <div id="claimSection" class="card">
                 <p> You can claim your credits now. </p>
                 <input id="claimBtn" type="submit" name="submit" value="Claim" class="btn btn-primary" />
             </div>
-            <div id='clockdiv' class='text-center'>
+            <div id='clockdiv' class='text-center card'>
                 <script>
                     var time_in_minutes = <?php echo $minutes; ?>;
                     var current_time = Date.parse(new Date());
@@ -60,7 +65,7 @@
                         var clock = document.getElementById(id);
                         function update_clock() {
                             var t = time_remaining(endtime);
-                            clock.innerHTML = 'Countdown to next claim <br/> <b>'+ t.minutes+' m '+ t.seconds + 's </b>';
+                            clock.innerHTML = '<h1>Countdown to next claim <br/>'+ t.minutes+' m '+ t.seconds + 's <h1>';
                             if(t.total <= 0) {
                                 clearInterval(timeinterval);
                                 document.getElementById("clockdiv").style.visibility = "hidden"; 

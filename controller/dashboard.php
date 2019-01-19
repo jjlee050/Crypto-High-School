@@ -13,7 +13,7 @@ class Dashboard extends Controller {
 	function index() {
         //$this -> viewLoader -> user = $this -> model -> getUser(Session::getSession("username"));
         $this -> viewLoader -> usercards = $this -> model -> getUserCards(Session::getSession("username"));
-        print_r($this -> model -> getUserCards(Session::getSession("username")));
+        //print_r($this -> model -> getUserCards(Session::getSession("username")));
 		$this -> viewLoader -> render('dashboard');
 	}
 }

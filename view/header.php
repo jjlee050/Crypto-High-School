@@ -32,10 +32,10 @@
 </head>
 <body>
 	<!-- Header -->
-	<div id="header">
+	<header>
       	<?php include 'mainmenu.php'; 
       	?> 
-	</div>
+	</header>
 	
 	<!-- Content -->
 	<div id="content" class="container">

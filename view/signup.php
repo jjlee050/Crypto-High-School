@@ -1,9 +1,5 @@
 <div id="signup" class="form-group">
-	<h1>
-        <span class="badge badge-primary">
-        	Sign Up
-    	</span>  
-    </h1>
+	<h1> Sign Up </h1>
 	<!-- Test -->
 	<form action="signup/registerUser" method="post">
 		<div class="form-group">

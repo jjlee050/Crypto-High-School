@@ -1,7 +1,4 @@
 <div id="main">
-    <?php
-        echo "Welcome " . $this -> user["name"];
-    ?>
     <!-- JUMBOTRON -->
     <div class="jumbotron text-center">
       <div class="container">
