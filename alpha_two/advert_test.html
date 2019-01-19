@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Free Crypto Plz</title>
+
+
+
+
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom-Style to Remove margin between title and body -->
+    <style>
+      .navbar{
+        margin-bottom:0;
+        border-radius:0; 
+      }
+    </style>
+
+ 
+  </head>
+  <body>
+
+    <!-- NAV BAR -->
+
+  <nav class="navbar navbar-inverse">
+    <div class="container text">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">CryptoFaucet</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav">
+
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+
+
+          <li>
+            <a href="About.html">About</a>
+          </li>
+
+
+          <li>
+            <a href="signup.html">Signup</a>
+          </li>
+
+          <li>
+            <a href="login.html">Login</a>
+          </li>
+
+          <li>
+            <a href="developersPage.html">Dev</a>
+          </li>
+
+
+
+
+
+
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+
+
+
+    <!--     MAIN CONTENT       -->
+
+
+    <script>
+
+//Pop-under window- By JavaScript Kit
+//Credit notice must stay intact for use
+//Visit http://javascriptkit.com for this script
+
+//specify page to pop-under
+var popunder="http://yahoo.com"
+
+//specify popunder window features
+//set 1 to enable a particular feature, 0 to disable
+var winfeatures="width=800,height=510,scrollbars=1,resizable=1,toolbar=1,location=1,menubar=1,status=1,directories=0"
+
+//Pop-under only once per browser session? (0=no, 1=yes)
+//Specifying 0 will cause popunder to load every time page is loaded
+var once_per_session=0
+
+///No editing beyond here required/////
+
+function get_cookie(Name) {
+  var search = Name + "="
+  var returnvalue = "";
+  if (document.cookie.length > 0) {
+    offset = document.cookie.indexOf(search)
+    if (offset != -1) { // if cookie exists
+      offset += search.length
+      // set index of beginning of value
+      end = document.cookie.indexOf(";", offset);
+      // set index of end of cookie value
+      if (end == -1)
+         end = document.cookie.length;
+      returnvalue=unescape(document.cookie.substring(offset, end))
+      }
+   }
+  return returnvalue;
+}
+
+function loadornot(){
+if (get_cookie('popunder')==''){
+loadpopunder()
+document.cookie="popunder=yes"
+}
+}
+
+function loadpopunder(){
+win2=window.open(popunder,"",winfeatures)
+win2.blur()
+window.focus()
+}
+
+if (once_per_session==0)
+loadpopunder()
+else
+loadornot()
+
+</script>
+
+
+
+
+
+
+<!-- End of Sign Up Section -->
+
+
+
+
+
+
+
+
+    <div style="height:400px"></div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" ></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+
