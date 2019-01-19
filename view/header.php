@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>FreeCryptoPlz</title>
-	
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Free Crypto Plz</title>
+
 	<!-- CSS files -->
 	<link rel="stylesheet" href="<?php echo ASSETPATH; ?>css/bootstrap.min.css" />
 	<link rel="stylesheet" href="<?php echo ASSETPATH; ?>css/bootstrap-reboot.min.css" />
@@ -18,6 +22,13 @@
 	
 	<script type="text/javascript" src="<?php echo ASSETPATH; ?>js/freecryptoplz.js"></script>
 	
+    <!-- Custom-Style to Remove margin between title and body -->
+    <style>
+      .navbar{
+        margin-bottom:0;
+        border-radius:0; 
+      }
+    </style>
 </head>
 <body>
 	<!-- Header -->

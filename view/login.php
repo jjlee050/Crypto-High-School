@@ -1,4 +1,10 @@
-<div id="login">
+<div id="login" class="form-group">
+	
+	<h1>
+        <span class="badge badge-primary">
+			Login
+		</span>
+	</h1>  
 	<!-- Test -->
 	<form action="login/checkUser" method="post">
 		<div class="form-group">

@@ -8,34 +8,41 @@
     if (username) {
       $("#register").hide();
       $("#login").hide();
-      $("#loggedIn").show();
+      $(".loggedIn").show();
     } else {
       $("#register").show();
       $("#login").show();
-      $("#loggedIn").hide();
+      $(".loggedIn").hide();
     }
   });
 </script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="main">CryptoFaucet</a>
-  <ul class="navbar-nav">
-    <li id="login" class="nav-item">
-      <a class="nav-link" href='login'>Login</a>
-    </li>
-    <li id="register" class="nav-item">
-      <a class="nav-link" href='signup' title='Register'>Register</a>
-    </li>
-    <li id="loggedIn" class="nav-item dropdown float-left">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Menu
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="dashboard">Dashboard</a>
-          <a class="dropdown-item" href="faucet">Faucet</a>
-          <a class="dropdown-item" href="#">Gacha</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href='login/logout' title='logout'>Logout</a>
-        </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li id="login" class="nav-item">
+        <a class="nav-link" href='login'>Login</a>
       </li>
-  </ul>
-</div>
+      <li id="register" class="nav-item">
+        <a class="nav-link" href='signup' title='Register'>Register</a>
+      </li>
+      <li class="loggedIn nav-item">
+        <a class="nav-link" href="dashboard">Dashboard</a>
+      </li>
+      <li class="loggedIn nav-item">
+        <a class="nav-link" href="faucet">Faucet</a>
+      </li>
+      <li class="loggedIn nav-item">
+        <a class="nav-link" href="#">Gacha</a>
+      </li>
+      <li class="loggedIn nav-item">
+        <a class="nav-link" href='login/logout' title='logout'>Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
