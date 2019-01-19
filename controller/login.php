@@ -3,13 +3,7 @@ class Login extends Controller {
 	function __construct() {
 		
 		parent::__construct('user');
-			 	
-		/*$this->session=new Session();
-		$this->session->start();
-			
-		if (!$this->session->get('loggedIn') || !($this->session->get('username'))) {
-			header('location:' . BASEPATH . 'login');
-		} */
+		Session::start();
 	}
 	
 	function index() {
@@ -27,8 +21,16 @@ class Login extends Controller {
 
 		$result = $this -> model -> checkUserCreds($name, $password);
 		if ($result) {
-			echo "User login successfully. <br/> Click <a href='../main'/> here </a> to resume activities.";
+			Session::createSession("username", $name);
+			header("Location: ../main");
+		} else {
+			ErrorMessage::show("Invalid login credentials.");
 		}
+	}
+
+	function logout() {
+		Session::destroy();
+		header("Location: ../main");
 	}
 }
 ?>

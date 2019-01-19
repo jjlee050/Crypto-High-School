@@ -6,15 +6,7 @@
  */
 class Main extends Controller {
 	function __construct() {
-		
 		parent::__construct('main_model');
-			 	
-		/*$this->session=new Session();
-		$this->session->start();
-			
-		if (!$this->session->get('loggedIn') || !($this->session->get('username'))) {
-			header('location:' . BASEPATH . 'login');
-		} */
 	}
 	
 	function index() {

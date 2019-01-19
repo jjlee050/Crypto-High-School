@@ -18,7 +18,7 @@ class Signup extends Controller {
 		$email = $_POST["email"];
 		$password = $_POST["password"];
 		$confirmPassword = $_POST["confirm_password"];
-		
+				
 		if ((empty($name)) || (empty($email)) || (empty($password)) || (empty($confirmPassword))) {
 			ErrorMessage::show("Please fill in all required fields.");
 			return; 
