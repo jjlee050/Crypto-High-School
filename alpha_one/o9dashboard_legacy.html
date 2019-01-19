@@ -106,102 +106,12 @@
 	</div>
 
 
-	<!-- PROGRESS BARS -->
 
-
-    	<h1 class="text-center">
-    		
-
-
-    		Next Claim:
-    		<div id="clockdiv" class="text-center text-danger">
-           <script>
-               // 10 minutes from now
-               var time_in_minutes = 15;
-               var current_time = Date.parse(new Date());
-               var deadline = new Date(current_time + time_in_minutes * 60 * 1000);
-
-               function time_remaining(endtime) {
-                   var t = Date.parse(endtime) - Date.parse(new Date());
-                   var seconds = Math.floor((t / 1000) % 60);
-                   var minutes = Math.floor((t / 1000 / 60) % 60);
-                   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-                   var days = Math.floor( t / (1000 * 60 * 60 * 24));
-                   return {'total': t, 'days': days, 'hours': hours, 'minutes': minutes, 'second': seconds};
-               }
-
-               function time_remaining(endtime) {
-                   var t = Date.parse(endtime) - Date.parse(new Date());
-                   var seconds = Math.floor( (t/1000) % 60 );
-                   var minutes = Math.floor( (t/1000/60) % 60 );
-                   var hours = Math.floor( (t/(1000*60*60)) % 24 );
-                   var days = Math.floor( t/(1000*60*60*24) );
-                   return {'total': t, 'days': days, 'hours': hours, 'minutes': minutes, 'seconds': seconds};
-               }
-
-               function run_clock(id, endtime) {
-                   var clock = document.getElementById(id);
-                   function update_clock(){
-                       var t = time_remaining(endtime);
-                       clock.innerHTML = 'Minutes: '+ t.minutes+'<br>Seconds: '+ t.seconds;
-                       if(t.total <= 0){ clearInterval(timeinterval); }
-                   }
-                   update_clock(); // run function once at first to avoid delay
-                   var timeinterval = setInterval(update_clock, 1000);
-               }
-
-               run_clock('clockdiv',deadline);
-
-           </script>
-       </div>
+<!-- PANELS -->
+<div class="panel panel-primary">
 
 
 
-
-
-
-
-
-
-    		</span>
-    	</h1>
-
-    	<br>
-
-    <div class="progress">
-    	<div class="progress-bar progress-bar-success progress-bar-striped active" style="width: 50%">50%
-        </div>
-    </div>
-
-
-    <div class="panel panel-primary">
-
-	    <div class="panel-heading">
-		  <h3 class="panel-title text-center">My Cards</h3>
-		</div>
-
-
-    </div>
-
-
-
-    <th><img class="images" src="images/lizard.jpg"></th>
-    <th><img class="images" src="images/lizard.jpg"></th>
-    <th><img class="images" src="images/lizard.jpg"></th>
-    <th><img class="images" src="images/lizard.jpg"></th>
-
-
-
-
-    <hr>
-
-
-
-
-
-
-	<!-- PANELS -->
-	<div class="panel panel-warning">
 
 
 	<div class="panel-heading">
@@ -214,34 +124,68 @@
 
 	
         <tr>
-          <th class="success">No. of cards</th>
-          <th class="info">Credits</th>
+          <th><img class="images" src="images/lizard.jpg"></th>
+          <th>Credits</th>
         </tr>
 
 
-        <tr class="text-center">
+            
+
+
+
+        <tr>
+          <td>09:00</td>
+          <td>2</td>
+        </tr>
+
+
+        <tr>
+          <td>09:05</td>
           <td>5</td>
-          <td>25</td>
         </tr>
 
+        <tr class="success">
+          <td>09:50</td>
+          <td>10</td>
+        </tr>
         
       </table>
 
+
+	<div class="panel-body">
+	  
+	</div>
+
+	<div class="panel-footer">
+	  
+	</div>
+
+
+
+
+
+
+
+
+
+
+	<!-- PROGRESS BARS -->
+
+
+	<span class="label label-default">Default</span>
+    	<h1 class="text-center">
+    		<span class="label label-warning">Time Till Next Claim</span>
+    	</h1>
+
+    <div class="progress">
+    	<div class="progress-bar progress-bar-success progress-bar-striped active" style="width: 50%">50%
+        </div>
+    </div>
 
 
 
 
 </div>
-
-
-    <!-- BUTTONS -->
-    <div class="text-center"> 
-
-	    <div class="container">
-	      <a href="o9GachaPage.html" class="btn btn-danger btn-center btn-lg" role="button">Claim Now!</a>
-	    </div>
-
-    </div>
 
 
 
