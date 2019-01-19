@@ -6,10 +6,12 @@
  */
 class Main extends Controller {
 	function __construct() {
-		parent::__construct('main_model');
+		parent::__construct('user');
+		Session::start();
 	}
 	
 	function index() {
+		$this -> viewLoader -> user = $this -> model -> getUser(Session::getSession("username"));
 		$this -> viewLoader -> render('main');
 	}
 }

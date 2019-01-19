@@ -27,5 +27,25 @@ class User extends Model {
         }
     }
 
+    public function getUser($name) {
+        try {
+            return $this -> db -> fetchSingle("SELECT * FROM `user`
+                WHERE `name` = :name",
+                array(':name' => $name));
+        } catch (Exception $e) {
+            ErrorMessage::show($e->getMessage());
+        }
+    }
+
+    public function makeClaim($credit, $name) {
+        try {
+            //`user` SET `credit` = '$new_amount', `last_claim_date_time` = NOW() WHERE `name` = '$name' 
+            return $this -> db -> onlyExecute("UPDATE `user` SET `credit` = :credit, `last_claim_date_time` = NOW() WHERE `name` = :name ",
+            array(':credit' => $credit, ':name' => $name));
+        } catch (Exception $e) {
+            ErrorMessage::show($e->getMessage());
+        }
+    }
+
 }
 ?>
