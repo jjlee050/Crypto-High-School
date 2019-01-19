@@ -16,8 +16,13 @@ class Main extends Controller {
 			header('location:' . BASEPATH . 'login');
 		} */
 	}
+	
 	function index() {
 		$this -> viewLoader -> tableData = $this -> model -> getData();
 		$this -> viewLoader -> render('main');
+	}
+
+	function signup() {
+		echo $_POST["name"] . "<br/>" . $_POST["email"];
 	}
 }
