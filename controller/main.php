@@ -23,6 +23,6 @@ class Main extends Controller {
 	}
 
 	function signup() {
-		echo $_POST["name"] . "<br/>" . $_POST["email"];
+		echo $_POST["name"] . "<br/>" . $_POST["email"] . "<br/>" . $_POST["password"] . "<br/>" . $_POST["confirm_password"];
 	}
 }
