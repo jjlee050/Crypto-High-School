@@ -8,11 +8,11 @@ require 'libs/Autoload.php';
  
 // handle request and dispatch it to the appropriate controller through bootstrap
 try{ 
-$app = new Bootstrap(); 
+	$app = new Bootstrap(); 
 } 
 catch (Exception $e){
 	if(DEVELOPMENT==true){
-	echo $e->getMessage();
+		echo $e->getMessage();
 	}
 	exit();
 } 

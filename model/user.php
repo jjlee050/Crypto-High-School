@@ -13,7 +13,17 @@ class User extends Model {
                 VALUES (0,:name, sha2(:password, 512), :email, NULL, 0, NOW())",
                 array(':name' => $name, ':password' => $password, ':email' => $email));
         } catch (Exception $e) {
-            echo 'Error: ',  $e->getMessage(), "\n";
+            ErrorMessage::show($e->getMessage());
+        }
+    }
+
+    public function checkUserCreds($name, $password) {
+        try {
+            return $this -> db -> fetchSingle("SELECT * FROM `user`
+                WHERE `name` = :name AND `password` = SHA2(:password, 512)",
+                array(':name' => $name, ':password' => $password));
+        } catch (Exception $e) {
+            ErrorMessage::show($e->getMessage());
         }
     }
 

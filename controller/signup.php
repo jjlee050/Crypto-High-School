@@ -6,15 +6,7 @@
  */
 class Signup extends Controller {
 	function __construct() {
-		
 		parent::__construct('user');
-			 	
-		/*$this->session=new Session();
-		$this->session->start();
-			
-		if (!$this->session->get('loggedIn') || !($this->session->get('username'))) {
-			header('location:' . BASEPATH . 'login');
-		} */
 	}
 	
 	function index() {
@@ -22,32 +14,23 @@ class Signup extends Controller {
     }
     
     function registerUser() {
-		if (empty($_POST["name"])) {
-			AlertBox::alert("Please enter your name.");
+		$name = $_POST["name"];
+		$email = $_POST["email"];
+		$password = $_POST["password"];
+		$confirmPassword = $_POST["confirm_password"];
+		
+		if ((empty($name)) || (empty($email)) || (empty($password)) || (empty($confirmPassword))) {
+			ErrorMessage::show("Please fill in all required fields.");
+			return; 
+		} else if ($password != $confirmPassword) {
+			ErrorMessage::show("Password and confirm password does not match.");
 			return;
 		}
-		else if (empty($_POST["email"])) {
-			AlertBox::alert("Please enter your email address.");
-			return;
-		}
-		else if (empty($_POST["password"])) {
-			AlertBox::alert("Please enter your password.");
-			return;
-		}
-		else if (empty($_POST["confirm_password"])) {
-			AlertBox::alert("Please confirm your password.");
-			return;
-		}
-		else if ($_POST["password"] != $_POST["confirm_password"]) {
-			AlertBox::alert("Password and confirm password does not match");
-			return;
-		} else {
-			$result = $this -> model -> registerUser($_POST["name"], $_POST["password"], $_POST["email"]);
-			if ($result) {
-                echo "User created successfully. <a href='../main'/> Done </a>";
-            } else {
-                echo "Fail to execute query. Return to the previous page.";
-            }
-		}
-    }
+		
+		$result = $this -> model -> registerUser($name, $password, $email);
+		if ($result) {
+            echo "User created successfully. <br/> Click <a href='../main'/> here </a> to resume activities.";
+        }
+	}
 }
+?>
