@@ -6,10 +6,11 @@
 class Database 
 {
 	private $db;
+	
 	public function __construct()
 	{
 		$this->db=new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
-		
+		$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 	}
 	
 	function fetchAllAssoc($sql, $bindData=null) {
@@ -24,7 +25,6 @@ class Database
 		return $sth -> fetch();
 	}
 	public function onlyExecute($sql, $bindData=null) {
-			
 		$sth = $this -> db -> prepare($sql);
 		return $sth -> execute($bindData);
 	}

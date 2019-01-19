@@ -1,6 +1,6 @@
 <div id="signup">
 	<!-- Test -->
-	<form action="main/signup" method="post">
+	<form action="signup/registerUser" method="post">
 		<div class="form-group">
 			<label for="name"> Name: </label>
 			<input type="text" class="form-control" name="name" />
