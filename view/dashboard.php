@@ -9,10 +9,11 @@
         <div class="card-body">
             <p> Last Claim Date: 
                 <?php
-                    if ((Session::getSession("lastClaimDate") === NULL) || (empty(Session::getSession("lastClaimDate")))) {
+                    $lastClaimDateTime = $this -> user["last_claim_date_time"];
+                    if (($lastClaimDateTime === NULL)) {
                         echo "-";
                     } else {
-                        echo Session::getSession("lastClaimDate");
+                        echo $lastClaimDateTime;
                     }
                 ?> 
             </p>

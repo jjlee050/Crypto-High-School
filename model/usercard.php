@@ -18,5 +18,16 @@ class UserCard extends Model {
             ErrorMessage::show($e->getMessage());
         }
     }
+
+    public function getUser($name) {
+        try {
+            return $this -> db -> fetchSingle("SELECT * FROM `user`
+                WHERE `name` = :name",
+                array(':name' => $name));
+        } catch (Exception $e) {
+            ErrorMessage::show($e->getMessage());
+        }
+    }
+
 }
 ?>
