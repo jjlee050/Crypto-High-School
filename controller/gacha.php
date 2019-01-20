@@ -12,6 +12,7 @@ class Gacha extends Controller {
     function index() {        
         $this -> viewLoader -> user = $this -> model -> getUser(Session::getSession("username"));
         $this -> viewLoader -> usercards = $this -> model -> getUserCards(Session::getSession("username"));
+        $this -> viewLoader -> cards = $this -> model -> getAllCards();
         //print_r($this -> model -> getAllCards("common"));
         $this -> viewLoader -> render('gacha');
     }
@@ -44,7 +45,7 @@ class Gacha extends Controller {
         }
 
         $cards = array();
-        foreach($this -> model -> getAllCards($rarity) as $key => $row) {
+        foreach($this -> model -> getAllCardsByRarity($rarity) as $key => $row) {
             array_push($cards, $row["card_id"]);
         }
         $cardId = $cards[array_rand($cards, 1)];

@@ -1,6 +1,15 @@
 <?php 
 class GachaModel extends Model {
-    public function getAllCards($rarity) {
+    public function getAllCards() {
+        try {
+            return $this -> db -> fetchAllAssoc("SELECT * FROM card_data
+                ORDER BY `card_id` DESC");
+        } catch (Exception $e) {
+            ErrorMessage::show($e->getMessage());
+        }
+    }
+
+    public function getAllCardsByRarity($rarity) {
         try {
             return $this -> db -> fetchAllAssoc("SELECT `card_id` FROM card_data
                 WHERE `rarity` = :rarity ORDER BY `card_id` DESC",
