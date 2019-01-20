@@ -30,7 +30,7 @@
             echo "<div class='card-header'>";
             echo "<h5>" . $row["card_name"] . "</h5>";
             echo "</div>";
-            echo "<img class='card-img-top' alt='Responsive image' src='". ASSETPATH . "img/samples/ayanami.jpg'/>";
+            echo "<img class='card-img-top' alt='Responsive image' src='". ASSETPATH . "img/samples/" . $row["card_img"] . "'/>";
             echo "<div class='card-body'>";
             echo "<ul class='list-unstyled'>";
             echo "<li> DPS: " . $row["dps"] . "</li>";
