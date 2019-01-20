@@ -9,13 +9,7 @@ gaming rewards.
 Users claim from faucet to earn in-game credits. Users can choose to withdraw (in a cryptocurrency) the credits that they earn from the faucet for their personal use or they can spend their credits to play the game to potentially earn even more.
 
 ## Cryptocurrencies that be withdrawn
-o Bitcoin
-o Dash
-o Dogecoin
-o Ethereum
-o Ethereum Classic o Litecoin
-o Monero
-o PIVX
+Bitcoin, Dash, Dogecoin, Ethereum, Ethereum Classic, Monero, PIVX
 
 ## Step-by-step user guide
 1. Register for account if he/she does not have any.
