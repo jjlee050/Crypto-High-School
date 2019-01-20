@@ -1,4 +1,5 @@
 # Crypto High School
+![](assets/img/samples/Crypto High School.png)
 
 ## About
 Crypto High School is a cryptocurrency-based game that serves as a win-win situation
