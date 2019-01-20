@@ -39,4 +39,3 @@
 	
 	<!-- Content -->
 	<div id="content" class="container">
-		<br/>

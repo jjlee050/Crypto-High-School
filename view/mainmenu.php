@@ -38,7 +38,7 @@
         <a class="nav-link" href="faucet">Faucet</a>
       </li>
       <li class="loggedIn nav-item">
-        <a class="nav-link" href="#">Gacha</a>
+        <a class="nav-link" href="gacha">Gacha</a>
       </li>
       <li class="loggedIn nav-item">
         <a class="nav-link" href='login/logout' title='logout'>Logout</a>

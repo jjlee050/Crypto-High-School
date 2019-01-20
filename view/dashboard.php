@@ -25,7 +25,7 @@
     <?php
         foreach($this -> usercards as $key => $row)
         {
-            echo "<div class='col-lg-3'>";
+            echo "<div class='col-lg-3 myCards'>";
             echo "<div class='card'>";
             echo "<div class='card-header'>";
             echo "<h5>" . $row["card_name"] . "</h5>";
