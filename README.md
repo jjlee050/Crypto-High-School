@@ -25,3 +25,8 @@ Bitcoin, Dash, Dogecoin, Ethereum, Ethereum Classic, Monero, PIVX.
     1. the user can see a sliding carousel of all the possible cards that he/she can obtain.
     2. the user can choose to pull a common card for 200 credits or a rare card for 600 credits.
     3. he user will be notified on the card he/she has received and the card bonus.
+
+## Future Enhancements
+1. Cards Management
+2. Users Management
+3. Game
