@@ -16,16 +16,14 @@
 	<?php create_ad() ?>
 	<form method="post" action="test.php" class="container text-center">
 		<fieldset>
-			<legend> Claim from Faucet </legend>
-			<p> Claim 20 credits every 15 minutes </p>
+			<legend> Pull 1 Card from Gacha </legend>
+			<p> 1 Pull Costs 200 Credits </p>
 			<p> Credit Balance: 
 				<?php 
 
 				require("../mysqli_connect.php");
 
-				date_default_timezone_set('Asia/Singapore');
 				$name = 'admin';//SESSION NAME HERE
-				$time = date('Y-m-d H:i:s');
 
 				$q = "SELECT * FROM `user` WHERE `name` = '$name'";
 
@@ -33,48 +31,85 @@
 
 				$row = @mysqli_fetch_assoc($r);
 
-				$time_now = $row['last_claim_date_time'];
+				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-				$time_claim = date('Y-m-d H:i:s', strtotime('+15 minutes', strtotime($time_now)));
+					switch ($_POST['submit']){
+					
+					case "Pull Rare":
+					$new_amount = $row['credit'] - 600;
+					$rarity = 'rare';
+					break; 
 
-				if ($_SERVER['REQUEST_METHOD'] == 'POST' && $time > $time_claim) {
+					default:
+					$new_amount = $row['credit'] - 200;
+					$rarity = 'common';
 
-					$new_amount = $row['credit'] + 20;
-
-					mysqli_free_result($r);
-
-					$q = "UPDATE `user` SET `credit` = '$new_amount', `last_claim_date_time` = NOW() WHERE `name` = '$name' " ;
-
-					$r = @mysqli_query($dbc, $q);
-
-					$q = "SELECT * FROM `user` WHERE `name` = '$name'";
-
-					$r = @mysqli_query($dbc, $q);
-
-					$row = @mysqli_fetch_assoc($r);
-
-					echo('<strong>'.$row['credit'].'</strong>');
-
-				} else {
-
-					echo('<strong>'.$row['credit'].'</strong>');
-
-					if ($time < $time_claim) {
-
-						echo('<p>You have claimed within the past 15 minutes</p>');
-
-					}
-				
 				}
 
-				echo('<p> Last Claim Time: '.$time_now.'</p>
-					<p> Next Claim Valid Time: '.$time_claim.'</p>');
+				if ($new_amount >= 0) {
 
-				mysqli_close($dbc);
+					$update_balance = "UPDATE `user` SET `credit` = '$new_amount' WHERE `name` = '$name' " ;
 
-				?>
+					$update_balance = @mysqli_query($dbc, $update_balance);
+
+					$user_id = "SELECT * FROM `user` WHERE `name` = '$name'";
+					$user_id = @mysqli_query($dbc, $user_id);
+					$user_id = @mysqli_fetch_assoc($user_id);
+					$user_id = $user_id['id'];
+
+					$total_cards = "SELECT * FROM `card_data` WHERE `rarity` = '$rarity' ORDER BY `card_id` DESC LIMIT 1"; //COMMON RARITY ONLY
+					$total_cards = @mysqli_query($dbc, $total_cards);
+					$total_cards = @mysqli_fetch_assoc($total_cards);
+					$total_cards = $total_cards['card_id'];
+					$card_id = rand(1, $total_cards);
+
+					$card_bonus = rand(1, 10);
+
+					$add_card = "INSERT INTO `user_card` (`unique_id`, `user_id`, `card_id`, `card_bonus`) VALUES (NULL, '$user_id', '$card_id', '$card_bonus') " ;
+
+					$add_card = @mysqli_query($dbc, $add_card);
+
+					$new_balance = "SELECT * FROM `user` WHERE `name` = '$name'";
+					$new_balance = @mysqli_query($dbc, $new_balance);
+					$new_balance = @mysqli_fetch_assoc($new_balance);
+					$new_balance = $new_balance['credit'];
+
+					echo('<strong>'.$new_balance.'</strong>');
+
+					$card_name = "SELECT * FROM `card_data` WHERE `card_id` = '$card_id'";
+					$card_name = @mysqli_query($dbc, $card_name);
+					$card_name = @mysqli_fetch_assoc($card_name);
+					$card_name = $card_name['card_name'];
+
+					echo('<p> You got an '.$card_name.'</p>');
+
+					}
+
+					else {
+
+					echo('<strong>'.$row['credit'].'</strong>');
+
+					if (isset($new_amount) && $new_amount < 0) {
+
+						echo('<p>You have insufficient credits to claim</p>');
+
+					}
+
+
+				}
+
+			}
+
+			else {
+				echo '<strong>'.$row['credit'].'</strong>';
+			}
+
+			mysqli_close($dbc);
+
+			?>
 			</p>
-			<input type="submit" name="submit" value="Claim">
+			<input type="submit" name="submit" value="Pull Common">
+			<input type="submit" name="submit" value="Pull Rare">
 		</fieldset>
 	</form>
 
