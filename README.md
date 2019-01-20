@@ -11,7 +11,7 @@ Users claim from faucet to earn in-game credits. Users can choose to withdraw (i
 ## Cryptocurrencies that be withdrawn
 Bitcoin, Dash, Dogecoin, Ethereum, Ethereum Classic, Monero, PIVX
 
-## Step-by-step user guide
+## User Guide
 1. Register for account if he/she does not have any.
 2. Sign into account.
 3. On the Dashboard,
