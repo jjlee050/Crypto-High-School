@@ -21,7 +21,9 @@
 	<script type="text/javascript" src="<?php echo ASSETPATH; ?>js/bootstrap.min.js"></script>
 	
 	<script type="text/javascript" src="<?php echo ASSETPATH; ?>js/freecryptoplz.js"></script>
-	
+	<!-- <script type="text/javascript" src="<?php echo ASSETPATH; ?>js/annoy.js"></script> -->
+	          
+
     <!-- Custom-Style to Remove margin between title and body -->
     <style>
       .navbar{
