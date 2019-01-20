@@ -24,25 +24,28 @@
     <hr/>
     <div class="row">
     <?php
-        foreach($this -> usercards as $key => $row)
-        {
-            echo "<div class='col-lg-3 myCards'>";
-            echo "<div class='card'>";
-            echo "<div class='card-header'>";
-            echo "<h5>" . $row["card_name"] . "</h5>";
-            echo "</div>";
-            echo "<img class='card-img-top' alt='Responsive image' src='". ASSETPATH . "img/samples/" . $row["card_img"] . "'/>";
-            echo "<div class='card-body'>";
-            echo "<ul class='list-unstyled'>";
-            echo "<li> DPS: " . $row["dps"] . "</li>";
-            echo "<li> RPS: " . $row["rps"] . "</li>";
-            echo "<li> Price: " . $row["price"] . "</li>";
-            echo "<li> Rarity: " . $row["rarity"] . "</li>";
-            echo "<li> Bonus: " . $row["card_bonus"] . "%</li>";
-            echo "</ul>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
+        if (count($this->usercards) <= 0) {
+            echo "<div class='container'><b class='text-center'><i> No cards found.</i></b></div>";
+        } else {
+            foreach($this -> usercards as $key => $row) {
+                echo "<div class='container col-lg-3 myCards'>";
+                echo "<div class='card'>";
+                echo "<div class='card-header'>";
+                echo "<h5>" . $row["card_name"] . "</h5>";
+                echo "</div>";
+                echo "<img class='card-img-top' alt='Responsive image' src='". ASSETPATH . "img/samples/" . $row["card_img"] . "'/>";
+                echo "<div class='card-body'>";
+                echo "<ul class='list-unstyled'>";
+                echo "<li> DPS: " . $row["dps"] . "</li>";
+                echo "<li> RPS: " . $row["rps"] . "</li>";
+                echo "<li> Price: " . $row["price"] . "</li>";
+                echo "<li> Rarity: " . $row["rarity"] . "</li>";
+                echo "<li> Bonus: " . $row["card_bonus"] . "%</li>";
+                echo "</ul>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+            }
         }
     ?>
     </div>
