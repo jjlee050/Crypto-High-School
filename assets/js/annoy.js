@@ -3,7 +3,7 @@
 //Visit http://javascriptkit.com for this script
 
 //specify page to pop-under
-var popunder="https://www.youtube.com/watch?v=usfiAsWR4qU&t=0m7s"
+var popunder="https://www.youtube.com/embed/usfiAsWR4qU?start=7&autoplay=1&fs=0"
 
 //specify popunder window features
 //set 1 to enable a particular feature, 0 to disable
